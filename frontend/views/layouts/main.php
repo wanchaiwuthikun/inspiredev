@@ -29,16 +29,16 @@ AppAsset::register($this);
                 'brandLabel' => 'Inspiredev',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-material-teal navbar-fixed-top',
 
 
                 ],
             ]);
             $menuItems = [
-            ['label' => ' <span class = "glyphicon glyphicon-facetime-video " >  </span>', 'url' => ['/site/lesson']],
-            ['label' => ' <span class = "glyphicon glyphicon-book">  </span>', 'url' => ['/site/articles']],
-            ['label' => ' <span class = "glyphicon glyphicon-comment ">  </span>', 'url' => ['/site/forum']],
-            ['label' => ' <span class = "glyphicon glyphicon-earphone">  </span>', 'url' => ['/site/contact']],
+            ['label' => ' <span class = "mdi-av-videocam " > </span>', 'url' => ['/site/lesson']],
+            ['label' => ' <span class = "mdi-av-my-library-books "> </span>', 'url' => ['/site/articles']],
+            ['label' => ' <span class = "mdi-communication-forum ">  </span>', 'url' => ['/site/forum']],
+            ['label' => ' <span class = "mdi-communication-call ">  </span>', 'url' => ['/site/contact']],
             ];
 
             echo Nav::widget([
@@ -48,10 +48,14 @@ AppAsset::register($this);
 
             ]);
 
+
+
             $menuItems = [];
             if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' =>' Signup', 'url' => ['/site/signup']];
+                //$menuItems[] = ['label' => '<form class="navbar-form navbar-right"><input type="text" class="form-control col-lg-8" placeholder="Search" ></form>'];
+                //$menuItems[] = ['label' =>'Signup', 'url' => ['/site/signup']];
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+
             } else {
                 $menuItems[] = [
                     'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -64,7 +68,13 @@ AppAsset::register($this);
                 'encodeLabels' => false,
                 'items' => $menuItems,
 
+
             ]);
+
+            echo' <form class="navbar-form navbar-right">
+                         <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form> ';
+
             NavBar::end();
         ?>
 
@@ -73,7 +83,7 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <!-- ใส่เนื้อหาตรงนี้ -->
+        <?= $content ?>
         </div>
     </div>
 

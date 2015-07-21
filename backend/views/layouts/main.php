@@ -44,7 +44,7 @@ AppAsset::register($this);
                 ];
             }
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
+                'options' => ['class' => 'navbar-nav-primary navbar-right'],
                 'items' => $menuItems,
             ]);
             NavBar::end();
